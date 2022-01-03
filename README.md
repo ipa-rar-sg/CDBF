@@ -42,6 +42,14 @@ configuration steps.
   ansible-playbook script.yml
   ```
 
+### Playbook for installing docker on Raspberry PI
+The ssh setup for the remote machines must be already completed, after that you can
+run the following command, which will run the playbook to install playbook on the remote
+machines specified in the inventory.
+```bash
+ansible-playbook dockinstall.yml -u ubuntu -K
+```
+
 ### References
 - [Getting Started with Ansible - YT Videos](https://youtube.com/playlist?list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70)
 - [Ansible git documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
