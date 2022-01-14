@@ -1,0 +1,37 @@
+---
+
+- hosts: all
+  tasks:
+
+  - name: Create a workspace
+    shell:
+      cmd: mkdir -p ~/catkin_ws/src
+  
+  - name: Pull desired repo from github
+    ansible.builtin.git:
+      repo: 'https://github.com/ramp-eu/THMHO_lidar_node.git'
+      dest: ~/catkin_ws/src/
+      version: main
+
+  - name: Download dependencies using .rosinstall
+    shell:
+      cmd: |
+        wstool init ~/catkin_ws/src/src
+        wstool merge ~/catkin_ws/src/src/THMHO_lidar_node.rosinstall 
+        wstool up
+      chdir: ~/catkin_ws/src/src
+
+  - name: Build ROS workspaces
+    shell: | 
+      source /opt/ros/noetic/setup.bash && 
+      catkin_make
+    args:
+      chdir: ~/catkin_ws
+      executable: /bin/bash
+      creates: 'devel/setup.bash' 
+
+
+  - name: Update .bashrc with ws/devel/setup.bash
+    lineinfile:
+      path: ~/.bashrc
+      line: source ~/catkin_ws/devel/setup.bash

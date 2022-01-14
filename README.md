@@ -18,7 +18,7 @@ ssh-keygen -t ed25519 -C "ansible"
 ```
 4. Copy the new generated ssh-key into the remote machines.
 ```bash
-ssh-copy-id -i <PATH_TO_YOUR_LOCAL_SSH_KEY> <IP_REMOTE_MACHINE> 
+ssh-copy-id -i `username@ip_address`
 ```
 
 Steps 2 and 4 could be setup instead at the time of the RPI Ubuntu installation and 
