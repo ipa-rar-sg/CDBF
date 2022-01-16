@@ -3,18 +3,25 @@
 - hosts: all
   tasks:
 
-  - name: pull desired repo
-    ansible.builtin.git:
-      repo: git@github.com:ipa-rar-sg/THMHO_dashboard.git
-      dest: /home/ganbatte/THMHO
-      single_branch: yes
-      version: sparsenosql
-
   - name: Install docker sdk for python
     pip:
       name: docker
 
-  - name: run docker container
+  - name: pull docker image community
+    community.docker.docker_image:
+      name: ragesh18/thmho-lidar-node:main
+      source: pull
+
+  - name: run docker container with pulled image
     community.docker.docker_container:
-      name: ansitest
-      image: python:3.9-slim
+      name: testnode
+      image: ragesh18/thmho-lidar-node:main
+
+  - name: pull desired repo
+    ansible.builtin.git:
+      repo: git@github.com:ipa-rar-sg/THMHO_dashboard.git
+      dest: /dir/dir2
+      single_branch: yes
+      version: sparsenosql
+
+
