@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Pull THMHO_Lidar_Node image
+      community.docker.docker_image:
+        name: ragesh18/thmho-lidar-node:main
+        source: pull
