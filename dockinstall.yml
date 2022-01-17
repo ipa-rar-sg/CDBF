@@ -23,6 +23,7 @@
         - curl
         - software-properties-common
         - gnupg-agent
+        - python3-pip
       
     - name: Add an apt signing key for Docker
       apt_key:
@@ -52,3 +53,6 @@
         name: "{{ansible_user}}"
         group: docker
 
+    - name: Install docker sdk for python
+      pip:
+        name: docker
