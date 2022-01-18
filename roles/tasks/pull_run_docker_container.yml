@@ -2,7 +2,12 @@
 
 - hosts: all
   tasks:
-    - name: Pull THMHO_Lidar_Node image
+    - name: pull docker image from docker hub
       community.docker.docker_image:
-        name: ragesh18/thmho-lidar-node:main
+        name: ragesh18/thmho-lidar-node:docker
         source: pull
+
+    - name: run docker container with pulled image
+      community.docker.docker_container:
+        name: testnode
+        image: ragesh18/thmho-lidar-node:docker
