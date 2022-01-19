@@ -13,9 +13,10 @@
     community.docker.docker_prune:
       images: yes
 
-      # - name: run docker container with pulled image
-      #   community.docker.docker_container:
-      #     name: testnode
-      #     image: ragesh18/thmho-lidar-node:main
-
+  - name: run docker container with pulled image
+    community.docker.docker_container:
+      name: litnode
+      image: ragesh18/thmho-lidar-node:main
+      volumes:
+        - /run.sh:/run.sh
 
