@@ -1,9 +1,22 @@
+[node3]
 ubuntu@192.168.1.199
+
+[node4]
 ubuntu@192.168.1.200
+
+[node5]
 ubuntu@192.168.1.201
+
+[node6]
 ubuntu@192.168.1.202
+
+[node7]
 ubuntu@192.168.1.203
+
+[node8]
 ubuntu@192.168.1.204
+
+[node9]
 ubuntu@192.168.1.205
 
 

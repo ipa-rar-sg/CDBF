@@ -2,12 +2,23 @@
 
 - hosts: all
   tasks:
-    - name: pull docker image from docker hub
-      community.docker.docker_image:
-        name: ragesh18/thmho-lidar-node:docker
-        source: pull
 
-    - name: run docker container with pulled image
-      community.docker.docker_container:
-        name: testnode
-        image: ragesh18/thmho-lidar-node:docker
+  - name: pull docker image community
+    community.docker.docker_image:
+      name: ragesh18/thmho-lidar-node:main
+      source: pull
+      force_source: yes
+
+  - name: prune unnecesary docker images
+    community.docker.docker_prune:
+      images: yes
+
+  - name: run docker container with pulled image
+    community.docker.docker_container:
+      name: litnode
+      image: ragesh18/thmho-lidar-node:main
+      volumes:
+        - ~/run.sh:/root/run.sh
+      network_mode: host
+      devices:
+        - /dev/ttyUSB0
