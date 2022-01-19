@@ -20,4 +20,6 @@
       volumes:
         - ~/run.sh:/run.sh
       network_mode: host
+      devices:
+        - /dev/ttyUSB0
 
