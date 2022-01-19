@@ -9,6 +9,10 @@
       source: pull
       force_source: yes
 
+  - name: prune unnecesary docker images
+    community.docker.docker_prune:
+      images: yes
+
       # - name: run docker container with pulled image
       #   community.docker.docker_container:
       #     name: testnode
