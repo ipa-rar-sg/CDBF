@@ -18,7 +18,7 @@
       name: litnode
       image: ragesh18/thmho-lidar-node:main
       volumes:
-        - ~/run.sh:/run.sh
+        - ~/run.sh:/root/run.sh
       network_mode: host
       devices:
         - /dev/ttyUSB0
