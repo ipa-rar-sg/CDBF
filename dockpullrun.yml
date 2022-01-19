@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  tasks:
+
+  - name: pull docker image community
+    community.docker.docker_image:
+      name: ragesh18/thmho-lidar-node:main
+      source: pull
+      force_source: yes
+
+      # - name: run docker container with pulled image
+      #   community.docker.docker_container:
+      #     name: testnode
+      #     image: ragesh18/thmho-lidar-node:main
+
+
