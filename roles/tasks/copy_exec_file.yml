@@ -1,5 +1,23 @@
 ---
 
+- hosts: node1
+  gather_facts: no
+  tasks:
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ~/ansible_ws/CDBF/production/node1/run.sh
+        dest: ~/run.sh
+        mode: 0755
+
+- hosts: node2
+  gather_facts: no
+  tasks:
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ~/ansible_ws/CDBF/production/node2/run.sh
+        dest: ~/run.sh
+        mode: 0755
+
 - hosts: node3
   gather_facts: no
   tasks:
@@ -62,3 +80,4 @@
         src: ~/ansible_ws/CDBF/production/node9/run.sh
         dest: ~/run.sh
         mode: 0755
+ 

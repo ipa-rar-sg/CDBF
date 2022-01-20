@@ -13,6 +13,11 @@
     community.docker.docker_prune:
       images: yes
 
+  - name: remove docker container
+    community.docker.docker_container:
+      name: litnode
+      state: absent
+
   - name: run docker container with pulled image
     community.docker.docker_container:
       name: litnode
@@ -22,3 +27,5 @@
       network_mode: host
       devices:
         - /dev/ttyUSB0
+      cleanup: yes
+      auto_remove: yes
