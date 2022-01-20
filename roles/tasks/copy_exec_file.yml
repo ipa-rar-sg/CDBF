@@ -14,7 +14,7 @@
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: ~/ansible_ws/CDBF/production/node3/run.sh
+        src: ~/ansible_ws/CDBF/production/node4/run.sh
         dest: ~/run.sh
         mode: 0755
 
@@ -23,16 +23,7 @@
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: ~/ansible_ws/CDBF/production/node3/run.sh
-        dest: ~/run.sh
-        mode: 0755
-
-- hosts: node5
-  gather_facts: no  
-  tasks:
-    - name: Copy file with owner and permissions
-      ansible.builtin.copy:
-        src: ~/ansible_ws/CDBF/production/node3/run.sh
+        src: ~/ansible_ws/CDBF/production/node5/run.sh
         dest: ~/run.sh
         mode: 0755
 
@@ -41,16 +32,16 @@
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: ~/ansible_ws/CDBF/production/node3/run.sh
+        src: ~/ansible_ws/CDBF/production/node6/run.sh
         dest: ~/run.sh
         mode: 0755
 
 - hosts: node7
-  gather_facts: no
+  gather_facts: no  
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: ~/ansible_ws/CDBF/production/node3/run.sh
+        src: ~/ansible_ws/CDBF/production/node7/run.sh
         dest: ~/run.sh
         mode: 0755
 
@@ -59,6 +50,15 @@
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: ~/ansible_ws/CDBF/production/node3/run.sh
+        src: ~/ansible_ws/CDBF/production/node8/run.sh
+        dest: ~/run.sh
+        mode: 0755
+
+- hosts: node9
+  gather_facts: no
+  tasks:
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ~/ansible_ws/CDBF/production/node9/run.sh
         dest: ~/run.sh
         mode: 0755
